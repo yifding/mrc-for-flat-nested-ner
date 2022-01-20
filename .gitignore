@@ -122,3 +122,10 @@ venv.bak/
 
 # mac book
 .DS_Store
+
+# yd dataset
+yd_data
+# yd_script
+*.ckpt
+*.tar.gz
+
