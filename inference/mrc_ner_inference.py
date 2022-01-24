@@ -11,7 +11,7 @@ from utils.random_seed import set_random_seed
 set_random_seed(0)
 from train.mrc_ner_trainer import BertLabeling
 from tokenizers import BertWordPieceTokenizer
-from datasets.mrc_ner_dataset import MRCNERDataset
+from dataset.mrc_ner_dataset import MRCNERDataset
 from metrics.functional.query_span_f1 import extract_flat_spans, extract_nested_spans
 
 def get_dataloader(config, data_prefix="test"):
@@ -36,6 +36,8 @@ def get_query_index_to_label_cate(dataset_sign):
         return {1: "ORG", 2: "PER", 3: "LOC", 4: "MISC"}
     elif dataset_sign == "ace04":
         return {1: "GPE", 2: "ORG", 3: "PER", 4: "FAC", 5: "VEH", 6: "LOC", 7: "WEA"}
+    elif dataset_sign == "az33":
+        return {0: 'ActiveIngredients', 1: 'AgeRangeDescription', 2: 'BatteryCellComposition', 3: 'Brand', 4: 'CaffeineContent', 5: 'CapacityUnit', 6: 'CoffeeRoastType', 7: 'Color', 8: 'DietType', 9: 'DosageForm', 10: 'EnergyUnit', 11: 'FinishType', 12: 'Flavor', 13: 'FormulationType', 14: 'HairType', 15: 'Ingredients', 16: 'ItemForm', 17: 'ItemShape', 18: 'LiquidContentsDescription', 19: 'Material', 20: 'MaterialFeature', 21: 'MaterialTypeFree', 22: 'PackageSizeName', 23: 'Pattern', 24: 'PatternType', 25: 'ProductBenefit', 26: 'Scent', 27: 'SkinTone', 28: 'SkinType', 29: 'SpecialIngredients', 30: 'TargetGender', 31: 'TeaVariety', 32: 'Variety'}
 
 
 def get_parser() -> argparse.ArgumentParser:
@@ -47,7 +49,7 @@ def get_parser() -> argparse.ArgumentParser:
     parser.add_argument("--model_ckpt", type=str, default="")
     parser.add_argument("--hparams_file", type=str, default="")
     parser.add_argument("--flat_ner", action="store_true",)
-    parser.add_argument("--dataset_sign", type=str, choices=["ontonotes4", "msra", "conll03", "ace04", "ace05"], default="conll03")
+    parser.add_argument("--dataset_sign", type=str, choices=["ontonotes4", "msra", "conll03", "ace04", "ace05","az33"], default="conll03")
 
     return parser
 

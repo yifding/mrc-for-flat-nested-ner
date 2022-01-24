@@ -8,6 +8,10 @@ import torch
 from tokenizers import BertWordPieceTokenizer
 from torch.utils.data import Dataset
 
+from datasets import load_dataset
+
+
+
 
 class MRCNERDataset(Dataset):
     """
@@ -19,16 +23,26 @@ class MRCNERDataset(Dataset):
         possible_only: if True, only use possible samples that contain answer for the query/context
         is_chinese: is chinese dataset
     """
-    def __init__(self, json_path, tokenizer: BertWordPieceTokenizer, max_length: int = 512, possible_only=False,
-                 is_chinese=False, pad_to_maxlen=False):
-        self.all_data = json.load(open(json_path, encoding="utf-8"))
+    def __init__(
+            self,
+            json_path,
+            tokenizer: BertWordPieceTokenizer,
+            max_length: int = 512,
+            possible_only=False,
+            is_chinese=False,
+            pad_to_maxlen=False,
+            load_script_path='/scratch365/pliang/AVE_project/mrc-for-flat-nested-ner/yd_script/mrc_jsonl.py',
+            cache_dir='/scratch365/pliang/AVE_project/transformers_cache',
+        ):
+
+        self.all_data = load_dataset(load_script_path, data_files={'train': json_path}, split='train', cache_dir=cache_dir)
         self.tokenizer = tokenizer
         self.max_length = max_length
         self.possible_only = possible_only
-        if self.possible_only:
-            self.all_data = [
-                x for x in self.all_data if x["start_position"]
-            ]
+        # if self.possible_only:
+        #     self.all_data = [
+        #         x for x in self.all_data if x["start_position"]
+        #     ]
         self.is_chinese = is_chinese
         self.pad_to_maxlen = pad_to_maxlen
 
@@ -67,7 +81,7 @@ class MRCNERDataset(Dataset):
             end_positions = [x+1 for x in end_positions]
         else:
             # add space offsets
-            words = context.split()
+            words = context.split(" ")
             start_positions = [x + sum([len(w) for w in words[:x]]) for x in start_positions]
             end_positions = [x + sum([len(w) for w in words[:x + 1]]) for x in end_positions]
 
@@ -178,7 +192,7 @@ class MRCNERDataset(Dataset):
 def run_dataset():
     """test dataset"""
     import os
-    from datasets.collate_functions import collate_to_max_length
+    from dataset.collate_functions import collate_to_max_length
     from torch.utils.data import DataLoader
     # zh datasets
     bert_path = "/data/nfsdata/nlp/BERT_BASE_DIR/chinese_L-12_H-768_A-12"
