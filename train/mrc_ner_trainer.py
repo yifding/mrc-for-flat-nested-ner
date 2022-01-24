@@ -21,9 +21,9 @@ from torch.utils.data import DataLoader
 from transformers import AdamW, get_linear_schedule_with_warmup, get_polynomial_decay_schedule_with_warmup
 from torch.optim import SGD
 
-from datasets.mrc_ner_dataset import MRCNERDataset
-from datasets.truncate_dataset import TruncateDataset
-from datasets.collate_functions import collate_to_max_length
+from dataset.mrc_ner_dataset import MRCNERDataset
+from dataset.truncate_dataset import TruncateDataset
+from dataset.collate_functions import collate_to_max_length
 from metrics.query_span_f1 import QuerySpanF1
 from models.bert_query_ner import BertQueryNER
 from models.model_config import BertQueryNerConfig
@@ -416,13 +416,13 @@ def main():
     trainer.fit(model)
 
     # after training, use the model checkpoint which achieves the best f1 score on dev set to compute the f1 on test set.
-    best_f1_on_dev, path_to_best_checkpoint = find_best_checkpoint_on_dev(args.default_root_dir, )
-    model.result_logger.info("=&" * 20)
-    model.result_logger.info(f"Best F1 on DEV is {best_f1_on_dev}")
-    model.result_logger.info(f"Best checkpoint on DEV set is {path_to_best_checkpoint}")
-    checkpoint = torch.load(path_to_best_checkpoint)
-    model.load_state_dict(checkpoint['state_dict'])
-    model.result_logger.info("=&" * 20)
+    # best_f1_on_dev, path_to_best_checkpoint = find_best_checkpoint_on_dev(args.default_root_dir, )
+    # model.result_logger.info("=&" * 20)
+    # model.result_logger.info(f"Best F1 on DEV is {best_f1_on_dev}")
+    # model.result_logger.info(f"Best checkpoint on DEV set is {path_to_best_checkpoint}")
+    # checkpoint = torch.load(path_to_best_checkpoint)
+    # model.load_state_dict(checkpoint['state_dict'])
+    # model.result_logger.info("=&" * 20)
 
 
 if __name__ == '__main__':
