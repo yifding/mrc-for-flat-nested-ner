@@ -106,6 +106,30 @@ class MRCNERDataset(Dataset):
             origin_offset2token_idx_start[token_start] = token_idx
             origin_offset2token_idx_end[token_end] = token_idx
 
+        for start in start_positions:
+            if start not in origin_offset2token_idx_start:
+                print(f"item: {item}")
+                print(f"context: {context}")
+                print(f"tokens: {tokens}")
+                print(f"offset: {offsets}")
+                # print(f"data: {data}")
+                with open(f"start_{item}.json", "w") as writer:
+                    json.dump([data], writer, ensure_ascii=False, indent=2)
+
+                import sys
+                sys.exit()
+        for end in end_positions:
+            if end not in origin_offset2token_idx_start:
+                print(f"item: {item}")
+                # print(f"context: {context}")
+                # print(f"tokens: {tokens}")
+                # print(f"offset: {offsets}")
+                print(f"end: {end}")
+                print(f"origin_offset2token_idx_start: {origin_offset2token_idx_start}")
+                with open(f"end_{item}.json", "w") as writer:
+                    json.dump([data], writer, ensure_ascii=False, indent=2)
+                import sys
+                sys.exit()
         new_start_positions = [origin_offset2token_idx_start[start] for start in start_positions]
         new_end_positions = [origin_offset2token_idx_end[end] for end in end_positions]
 
@@ -194,12 +218,21 @@ def run_dataset():
     import os
     from dataset.collate_functions import collate_to_max_length
     from torch.utils.data import DataLoader
+
+    """
     # zh datasets
     bert_path = "/data/nfsdata/nlp/BERT_BASE_DIR/chinese_L-12_H-768_A-12"
     vocab_file = os.path.join(bert_path, "vocab.txt")
     # json_path = "/mnt/mrc/zh_msra/mrc-ner.test"
     json_path = "/data/xiaoya/datasets/mrc_ner/zh_msra/mrc-ner.train"
     is_chinese = True
+    """
+
+    bert_path = "/nfs/yding4/AVE_project/mrc-for-flat-nested-ner/yd_data/bert-base-cased"
+    vocab_file = os.path.join(bert_path, "vocab.txt")
+    # json_path = "/nfs/yding4/AVE_project/consumable/title_bullet/33att/sample_data_1/mrc_for_ner/33att/mrc-ner.train"
+    json_path = "/nfs/yding4/AVE_project/mrc-for-flat-nested-ner/yd_script/01_18_2021/end_33.json"
+    is_chinese = False
 
     # en datasets
     # bert_path = "/mnt/mrc/bert-base-uncased"
@@ -207,15 +240,18 @@ def run_dataset():
     # json_path = "/mnt/mrc/genia/mrc-ner.train"
     # is_chinese = False
 
-    vocab_file = os.path.join(bert_path, "vocab.txt")
     tokenizer = BertWordPieceTokenizer(vocab_file)
     dataset = MRCNERDataset(json_path=json_path, tokenizer=tokenizer,
                             is_chinese=is_chinese)
 
-    dataloader = DataLoader(dataset, batch_size=1,
-                            collate_fn=collate_to_max_length)
+    # dataloader = DataLoader(dataset, batch_size=1,
+    #                         collate_fn=collate_to_max_length)
 
-    for batch in dataloader:
+    from tqdm import tqdm
+    for batch_index in tqdm(range(len(dataset))):
+        batch = dataset[batch_index]
+        """
+        print(f"batch_index: {batch_index}")
         for tokens, token_type_ids, start_labels, end_labels, start_label_mask, end_label_mask, match_labels, sample_idx, label_idx in zip(*batch):
             tokens = tokens.tolist()
             start_positions, end_positions = torch.where(match_labels > 0)
@@ -243,6 +279,7 @@ def run_dataset():
             print("!!!"*20)
             for start, end in zip(tmp_start_position, tmp_end_position):
                 print(str(sample_idx.item()), str(label_idx.item()) + "\t" + tokenizer.decode(tokens[start: end + 1]))
+        """
 
 
 if __name__ == '__main__':

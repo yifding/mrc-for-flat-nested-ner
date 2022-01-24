@@ -1,0 +1,37 @@
+[
+  {
+    "asin": "B086T4HMKN",
+    "product_type": "SKIN_MOISTURIZER",
+    "context": "NATRAVE Measurable Difference Vitamin E Hydrating Body Stress Relief Oil Moisturizing Spa Essential Made in USA . FEATURES : This Vitamin E oil nourishes and protects the skin , leaving it soft and supple . Vitamin E helps protect the appearance of skin damage while effectively replenishing hydration and decreasing the appearance of wrinkles . , SIZE : 4 fl oz , 118 ml , BENEFITS : Some purported benefits of vitamin E oil include moisturizing skin , wound healing , reducing skin itching , eczema , psoriasis , preventing or minimizing the appearance of scars , preventing , or treating fine lines and wrinkles . , USAGE : Vitamin E Oil instant face and body moisturizer . This vitamin E oil nourishes and protects the skin , leaving it soft and supple . Vitamin E helps protect the appearance of skin damage while effectively replenishing hydration and decreasing the appearance of wrinkles . , HOW TO USE : Use daily before moisturizing , start with a single drop and add more as needed . Massage a thin layer over face , neck , and body . Continued use helps to improve skin elasticity and promote healing of the problematic skin .",
+    "entity_label": "ActiveIngredients",
+    "query": "active ingredients",
+    "start_position": [
+      3,
+      20,
+      35,
+      71,
+      109,
+      119,
+      134
+    ],
+    "end_position": [
+      5,
+      22,
+      37,
+      73,
+      111,
+      121,
+      136
+    ],
+    "span_position": [
+      "3;5",
+      "20;22",
+      "35;37",
+      "71;73",
+      "109;111",
+      "119;121",
+      "134;136"
+    ],
+    "qas_id": "234212.0"
+  }
+]

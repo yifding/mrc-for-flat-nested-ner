@@ -1,0 +1,686 @@
+2022-01-18 19:28:17,807 - root - Namespace(accumulate_grad_batches=4, adam_epsilon=1e-08, amp_backend='native', amp_level='O2', auto_lr_find=False, auto_scale_batch_size=False, auto_select_gpus=False, batch_size=12, benchmark=False, bert_config_dir='/nfs/yding4/AVE_project/mrc-for-flat-nested-ner/yd_data/bert-base-cased', bert_dropout=0.1, check_val_every_n_epoch=1, checkpoint_callback=True, chinese=False, classifier_act_func='gelu', classifier_intermediate_hidden_size=2048, data_dir='/nfs/yding4/AVE_project/consumable/title_bullet/33att/sample_data_1/mrc_for_ner/33_test/', default_root_dir='/nfs/yding4/AVE_project/mrc-for-flat-nested-ner/yd_script/01_18_2021/train_mrc_for_ner_test/mrc_ner', deterministic=False, distributed_backend='ddp', early_stop_callback=False, fast_dev_run=False, final_div_factor=10000.0, flat=True, gpus=2, gradient_clip_val=1.0, limit_test_batches=1.0, limit_train_batches=1.0, limit_val_batches=1.0, log_gpu_memory=None, log_save_interval=100, logger=True, lr=3e-05, lr_mini=3e-07, lr_scheduler='polydecay', max_epochs=20, max_keep_ckpt=3, max_length=200, max_steps=None, min_epochs=1, min_steps=None, mrc_dropout=0.3, num_nodes=1, num_processes=1, num_sanity_val_steps=2, optimizer='torch.adam', overfit_batches=0.0, overfit_pct=None, precision=16, prepare_data_per_node=True, pretrained_checkpoint='', process_position=0, profiler=None, progress_bar_refresh_rate=1, reload_dataloaders_every_epoch=False, replace_sampler_ddp=True, resume_from_checkpoint=None, row_log_interval=50, seed=0, span_loss_candidates='pred_and_gold', sync_batchnorm=False, terminate_on_nan=False, test_percent_check=None, tpu_cores=<function Trainer._gpus_arg_default at 0x7f55450fcb80>, track_grad_norm=-1, train_percent_check=None, truncated_bptt_steps=None, val_check_interval=0.2, val_percent_check=None, warmup_steps=0, weight_decay=0.01, weight_end=1.0, weight_span=0.1, weight_start=1.0, weights_save_path=None, weights_summary='top', workers=0)
+2022-01-18 19:28:17,807 - __main__ - Namespace(accumulate_grad_batches=4, adam_epsilon=1e-08, amp_backend='native', amp_level='O2', auto_lr_find=False, auto_scale_batch_size=False, auto_select_gpus=False, batch_size=12, benchmark=False, bert_config_dir='/nfs/yding4/AVE_project/mrc-for-flat-nested-ner/yd_data/bert-base-cased', bert_dropout=0.1, check_val_every_n_epoch=1, checkpoint_callback=True, chinese=False, classifier_act_func='gelu', classifier_intermediate_hidden_size=2048, data_dir='/nfs/yding4/AVE_project/consumable/title_bullet/33att/sample_data_1/mrc_for_ner/33_test/', default_root_dir='/nfs/yding4/AVE_project/mrc-for-flat-nested-ner/yd_script/01_18_2021/train_mrc_for_ner_test/mrc_ner', deterministic=False, distributed_backend='ddp', early_stop_callback=False, fast_dev_run=False, final_div_factor=10000.0, flat=True, gpus=2, gradient_clip_val=1.0, limit_test_batches=1.0, limit_train_batches=1.0, limit_val_batches=1.0, log_gpu_memory=None, log_save_interval=100, logger=True, lr=3e-05, lr_mini=3e-07, lr_scheduler='polydecay', max_epochs=20, max_keep_ckpt=3, max_length=200, max_steps=None, min_epochs=1, min_steps=None, mrc_dropout=0.3, num_nodes=1, num_processes=1, num_sanity_val_steps=2, optimizer='torch.adam', overfit_batches=0.0, overfit_pct=None, precision=16, prepare_data_per_node=True, pretrained_checkpoint='', process_position=0, profiler=None, progress_bar_refresh_rate=1, reload_dataloaders_every_epoch=False, replace_sampler_ddp=True, resume_from_checkpoint=None, row_log_interval=50, seed=0, span_loss_candidates='pred_and_gold', sync_batchnorm=False, terminate_on_nan=False, test_percent_check=None, tpu_cores=<function Trainer._gpus_arg_default at 0x7f55450fcb80>, track_grad_norm=-1, train_percent_check=None, truncated_bptt_steps=None, val_check_interval=0.2, val_percent_check=None, warmup_steps=0, weight_decay=0.01, weight_end=1.0, weight_span=0.1, weight_start=1.0, weights_save_path=None, weights_summary='top', workers=0)
+2022-01-18 19:28:17,810 - lightning - GPU available: True, used: True
+2022-01-18 19:28:17,810 - lightning - TPU available: False, using: 0 TPU cores
+2022-01-18 19:28:17,810 - lightning - CUDA_VISIBLE_DEVICES: [0,1]
+2022-01-18 19:28:17,810 - lightning - Using native 16bit precision.
+2022-01-18 19:28:21,066 - lightning - initializing ddp: GLOBAL_RANK: 0, MEMBER: 1/2
+2022-01-18 19:28:23,678 - root - Namespace(accumulate_grad_batches=4, adam_epsilon=1e-08, amp_backend='native', amp_level='O2', auto_lr_find=False, auto_scale_batch_size=False, auto_select_gpus=False, batch_size=12, benchmark=False, bert_config_dir='/nfs/yding4/AVE_project/mrc-for-flat-nested-ner/yd_data/bert-base-cased', bert_dropout=0.1, check_val_every_n_epoch=1, checkpoint_callback=True, chinese=False, classifier_act_func='gelu', classifier_intermediate_hidden_size=2048, data_dir='/nfs/yding4/AVE_project/consumable/title_bullet/33att/sample_data_1/mrc_for_ner/33_test/', default_root_dir='/nfs/yding4/AVE_project/mrc-for-flat-nested-ner/yd_script/01_18_2021/train_mrc_for_ner_test/mrc_ner', deterministic=False, distributed_backend='ddp', early_stop_callback=False, fast_dev_run=False, final_div_factor=10000.0, flat=True, gpus=2, gradient_clip_val=1.0, limit_test_batches=1.0, limit_train_batches=1.0, limit_val_batches=1.0, log_gpu_memory=None, log_save_interval=100, logger=True, lr=3e-05, lr_mini=3e-07, lr_scheduler='polydecay', max_epochs=20, max_keep_ckpt=3, max_length=200, max_steps=None, min_epochs=1, min_steps=None, mrc_dropout=0.3, num_nodes=1, num_processes=1, num_sanity_val_steps=2, optimizer='torch.adam', overfit_batches=0.0, overfit_pct=None, precision=16, prepare_data_per_node=True, pretrained_checkpoint='', process_position=0, profiler=None, progress_bar_refresh_rate=1, reload_dataloaders_every_epoch=False, replace_sampler_ddp=True, resume_from_checkpoint=None, row_log_interval=50, seed=0, span_loss_candidates='pred_and_gold', sync_batchnorm=False, terminate_on_nan=False, test_percent_check=None, tpu_cores=<function Trainer._gpus_arg_default at 0x7f9a66a51b80>, track_grad_norm=-1, train_percent_check=None, truncated_bptt_steps=None, val_check_interval=0.2, val_percent_check=None, warmup_steps=0, weight_decay=0.01, weight_end=1.0, weight_span=0.1, weight_start=1.0, weights_save_path=None, weights_summary='top', workers=0)
+2022-01-18 19:28:23,679 - __main__ - Namespace(accumulate_grad_batches=4, adam_epsilon=1e-08, amp_backend='native', amp_level='O2', auto_lr_find=False, auto_scale_batch_size=False, auto_select_gpus=False, batch_size=12, benchmark=False, bert_config_dir='/nfs/yding4/AVE_project/mrc-for-flat-nested-ner/yd_data/bert-base-cased', bert_dropout=0.1, check_val_every_n_epoch=1, checkpoint_callback=True, chinese=False, classifier_act_func='gelu', classifier_intermediate_hidden_size=2048, data_dir='/nfs/yding4/AVE_project/consumable/title_bullet/33att/sample_data_1/mrc_for_ner/33_test/', default_root_dir='/nfs/yding4/AVE_project/mrc-for-flat-nested-ner/yd_script/01_18_2021/train_mrc_for_ner_test/mrc_ner', deterministic=False, distributed_backend='ddp', early_stop_callback=False, fast_dev_run=False, final_div_factor=10000.0, flat=True, gpus=2, gradient_clip_val=1.0, limit_test_batches=1.0, limit_train_batches=1.0, limit_val_batches=1.0, log_gpu_memory=None, log_save_interval=100, logger=True, lr=3e-05, lr_mini=3e-07, lr_scheduler='polydecay', max_epochs=20, max_keep_ckpt=3, max_length=200, max_steps=None, min_epochs=1, min_steps=None, mrc_dropout=0.3, num_nodes=1, num_processes=1, num_sanity_val_steps=2, optimizer='torch.adam', overfit_batches=0.0, overfit_pct=None, precision=16, prepare_data_per_node=True, pretrained_checkpoint='', process_position=0, profiler=None, progress_bar_refresh_rate=1, reload_dataloaders_every_epoch=False, replace_sampler_ddp=True, resume_from_checkpoint=None, row_log_interval=50, seed=0, span_loss_candidates='pred_and_gold', sync_batchnorm=False, terminate_on_nan=False, test_percent_check=None, tpu_cores=<function Trainer._gpus_arg_default at 0x7f9a66a51b80>, track_grad_norm=-1, train_percent_check=None, truncated_bptt_steps=None, val_check_interval=0.2, val_percent_check=None, warmup_steps=0, weight_decay=0.01, weight_end=1.0, weight_span=0.1, weight_start=1.0, weights_save_path=None, weights_summary='top', workers=0)
+2022-01-18 19:28:23,680 - lightning - Using native 16bit precision.
+2022-01-18 19:28:23,680 - lightning - initializing ddp: GLOBAL_RANK: 1, MEMBER: 2/2
+2022-01-18 19:28:29,867 - lightning - ----------------------------------------------------------------------------------------------------
+2022-01-18 19:28:29,867 - lightning - distributed_backend=ddp
+2022-01-18 19:28:29,867 - lightning - All DDP processes registered. Starting ddp with 2 processes
+2022-01-18 19:28:29,867 - lightning - ----------------------------------------------------------------------------------------------------
+2022-01-18 19:28:31,063 - lightning - 
+  | Name     | Type              | Params
+-----------------------------------------------
+0 | model    | BertQueryNER      | 111 M 
+1 | bce_loss | BCEWithLogitsLoss | 0     
+2 | span_f1  | QuerySpanF1       | 0     
+2022-01-18 19:28:33,596 - __main__ - EVAL INFO -> current_epoch is: 0, current_global_step is: 0 
+2022-01-18 19:28:33,597 - __main__ - EVAL INFO -> valid_f1 is: 0.0006646726396866143; precision: 0.0003326679870951921, recall: 0.3333333432674408.
+2022-01-18 19:28:33,597 - __main__ - EVAL INFO -> current_epoch is: 0, current_global_step is: 0 
+2022-01-18 19:28:33,597 - __main__ - EVAL INFO -> valid_f1 is: 0.0006646726396866143; precision: 0.0003326679870951921, recall: 0.3333333432674408.
+2022-01-18 19:28:35,043 - __main__ - EVAL INFO -> current_epoch is: 0, current_global_step is: 0 
+2022-01-18 19:28:35,043 - __main__ - EVAL INFO -> current_epoch is: 0, current_global_step is: 0 
+2022-01-18 19:28:35,044 - __main__ - EVAL INFO -> valid_f1 is: 0.00014661681780125946; precision: 7.33460474293679e-05, recall: 0.1428571492433548.
+2022-01-18 19:28:35,044 - __main__ - EVAL INFO -> valid_f1 is: 0.00014661681780125946; precision: 7.33460474293679e-05, recall: 0.1428571492433548.
+2022-01-18 19:28:35,055 - lightning - 
+Epoch 00000: span_f1 reached 0.00015 (best 0.00015), saving model to /nfs/yding4/AVE_project/mrc-for-flat-nested-ner/yd_script/01_18_2021/train_mrc_for_ner_test/mrc_ner/epoch=0.ckpt as top 3
+2022-01-18 19:28:42,650 - __main__ - EVAL INFO -> current_epoch is: 0, current_global_step is: 0 
+2022-01-18 19:28:42,650 - __main__ - EVAL INFO -> current_epoch is: 0, current_global_step is: 0 
+2022-01-18 19:28:42,650 - __main__ - EVAL INFO -> valid_f1 is: 0.00014661681780125946; precision: 7.33460474293679e-05, recall: 0.1428571492433548.
+2022-01-18 19:28:42,650 - __main__ - EVAL INFO -> valid_f1 is: 0.00014661681780125946; precision: 7.33460474293679e-05, recall: 0.1428571492433548.
+2022-01-18 19:28:42,657 - lightning - 
+Epoch 00000: span_f1 reached 0.00015 (best 0.00015), saving model to /nfs/yding4/AVE_project/mrc-for-flat-nested-ner/yd_script/01_18_2021/train_mrc_for_ner_test/mrc_ner/epoch=0_v0.ckpt as top 3
+2022-01-18 19:28:50,350 - __main__ - EVAL INFO -> current_epoch is: 0, current_global_step is: 0 
+2022-01-18 19:28:50,350 - __main__ - EVAL INFO -> current_epoch is: 0, current_global_step is: 0 
+2022-01-18 19:28:50,350 - __main__ - EVAL INFO -> valid_f1 is: 0.00014661681780125946; precision: 7.33460474293679e-05, recall: 0.1428571492433548.
+2022-01-18 19:28:50,350 - __main__ - EVAL INFO -> valid_f1 is: 0.00014661681780125946; precision: 7.33460474293679e-05, recall: 0.1428571492433548.
+2022-01-18 19:28:50,357 - lightning - 
+Epoch 00000: span_f1 reached 0.00015 (best 0.00015), saving model to /nfs/yding4/AVE_project/mrc-for-flat-nested-ner/yd_script/01_18_2021/train_mrc_for_ner_test/mrc_ner/epoch=0_v1.ckpt as top 3
+2022-01-18 19:28:57,699 - __main__ - EVAL INFO -> current_epoch is: 0, current_global_step is: 0 
+2022-01-18 19:28:57,699 - __main__ - EVAL INFO -> current_epoch is: 0, current_global_step is: 0 
+2022-01-18 19:28:57,699 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:28:57,699 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:28:57,709 - lightning - 
+Epoch 00000: span_f1  was not in top 3
+2022-01-18 19:28:58,815 - __main__ - EVAL INFO -> current_epoch is: 0, current_global_step is: 1 
+2022-01-18 19:28:58,815 - __main__ - EVAL INFO -> current_epoch is: 0, current_global_step is: 1 
+2022-01-18 19:28:58,815 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:28:58,815 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:28:58,822 - lightning - 
+Epoch 00000: span_f1  was not in top 3
+2022-01-18 19:29:30,428 - root - Namespace(accumulate_grad_batches=4, adam_epsilon=1e-08, amp_backend='native', amp_level='O2', auto_lr_find=False, auto_scale_batch_size=False, auto_select_gpus=False, batch_size=10, benchmark=False, bert_config_dir='/nfs/yding4/AVE_project/mrc-for-flat-nested-ner/yd_data/bert-base-cased', bert_dropout=0.1, check_val_every_n_epoch=1, checkpoint_callback=True, chinese=False, classifier_act_func='gelu', classifier_intermediate_hidden_size=2048, data_dir='/nfs/yding4/AVE_project/consumable/title_bullet/33att/sample_data_1/mrc_for_ner/33_test/', default_root_dir='/nfs/yding4/AVE_project/mrc-for-flat-nested-ner/yd_script/01_18_2021/train_mrc_for_ner_test/mrc_ner', deterministic=False, distributed_backend='ddp', early_stop_callback=False, fast_dev_run=False, final_div_factor=10000.0, flat=True, gpus=2, gradient_clip_val=1.0, limit_test_batches=1.0, limit_train_batches=1.0, limit_val_batches=1.0, log_gpu_memory=None, log_save_interval=100, logger=True, lr=3e-05, lr_mini=3e-07, lr_scheduler='polydecay', max_epochs=20, max_keep_ckpt=3, max_length=200, max_steps=None, min_epochs=1, min_steps=None, mrc_dropout=0.3, num_nodes=1, num_processes=1, num_sanity_val_steps=2, optimizer='torch.adam', overfit_batches=0.0, overfit_pct=None, precision=16, prepare_data_per_node=True, pretrained_checkpoint='', process_position=0, profiler=None, progress_bar_refresh_rate=1, reload_dataloaders_every_epoch=False, replace_sampler_ddp=True, resume_from_checkpoint=None, row_log_interval=50, seed=0, span_loss_candidates='pred_and_gold', sync_batchnorm=False, terminate_on_nan=False, test_percent_check=None, tpu_cores=<function Trainer._gpus_arg_default at 0x7feaa2fe9b80>, track_grad_norm=-1, train_percent_check=None, truncated_bptt_steps=None, val_check_interval=0.2, val_percent_check=None, warmup_steps=0, weight_decay=0.01, weight_end=1.0, weight_span=0.1, weight_start=1.0, weights_save_path=None, weights_summary='top', workers=0)
+2022-01-18 19:29:30,429 - __main__ - Namespace(accumulate_grad_batches=4, adam_epsilon=1e-08, amp_backend='native', amp_level='O2', auto_lr_find=False, auto_scale_batch_size=False, auto_select_gpus=False, batch_size=10, benchmark=False, bert_config_dir='/nfs/yding4/AVE_project/mrc-for-flat-nested-ner/yd_data/bert-base-cased', bert_dropout=0.1, check_val_every_n_epoch=1, checkpoint_callback=True, chinese=False, classifier_act_func='gelu', classifier_intermediate_hidden_size=2048, data_dir='/nfs/yding4/AVE_project/consumable/title_bullet/33att/sample_data_1/mrc_for_ner/33_test/', default_root_dir='/nfs/yding4/AVE_project/mrc-for-flat-nested-ner/yd_script/01_18_2021/train_mrc_for_ner_test/mrc_ner', deterministic=False, distributed_backend='ddp', early_stop_callback=False, fast_dev_run=False, final_div_factor=10000.0, flat=True, gpus=2, gradient_clip_val=1.0, limit_test_batches=1.0, limit_train_batches=1.0, limit_val_batches=1.0, log_gpu_memory=None, log_save_interval=100, logger=True, lr=3e-05, lr_mini=3e-07, lr_scheduler='polydecay', max_epochs=20, max_keep_ckpt=3, max_length=200, max_steps=None, min_epochs=1, min_steps=None, mrc_dropout=0.3, num_nodes=1, num_processes=1, num_sanity_val_steps=2, optimizer='torch.adam', overfit_batches=0.0, overfit_pct=None, precision=16, prepare_data_per_node=True, pretrained_checkpoint='', process_position=0, profiler=None, progress_bar_refresh_rate=1, reload_dataloaders_every_epoch=False, replace_sampler_ddp=True, resume_from_checkpoint=None, row_log_interval=50, seed=0, span_loss_candidates='pred_and_gold', sync_batchnorm=False, terminate_on_nan=False, test_percent_check=None, tpu_cores=<function Trainer._gpus_arg_default at 0x7feaa2fe9b80>, track_grad_norm=-1, train_percent_check=None, truncated_bptt_steps=None, val_check_interval=0.2, val_percent_check=None, warmup_steps=0, weight_decay=0.01, weight_end=1.0, weight_span=0.1, weight_start=1.0, weights_save_path=None, weights_summary='top', workers=0)
+2022-01-18 19:29:30,431 - lightning - GPU available: True, used: True
+2022-01-18 19:29:30,431 - lightning - TPU available: False, using: 0 TPU cores
+2022-01-18 19:29:30,431 - lightning - CUDA_VISIBLE_DEVICES: [0,1]
+2022-01-18 19:29:30,431 - lightning - Using native 16bit precision.
+2022-01-18 19:29:33,695 - lightning - initializing ddp: GLOBAL_RANK: 0, MEMBER: 1/2
+2022-01-18 19:29:36,266 - root - Namespace(accumulate_grad_batches=4, adam_epsilon=1e-08, amp_backend='native', amp_level='O2', auto_lr_find=False, auto_scale_batch_size=False, auto_select_gpus=False, batch_size=10, benchmark=False, bert_config_dir='/nfs/yding4/AVE_project/mrc-for-flat-nested-ner/yd_data/bert-base-cased', bert_dropout=0.1, check_val_every_n_epoch=1, checkpoint_callback=True, chinese=False, classifier_act_func='gelu', classifier_intermediate_hidden_size=2048, data_dir='/nfs/yding4/AVE_project/consumable/title_bullet/33att/sample_data_1/mrc_for_ner/33_test/', default_root_dir='/nfs/yding4/AVE_project/mrc-for-flat-nested-ner/yd_script/01_18_2021/train_mrc_for_ner_test/mrc_ner', deterministic=False, distributed_backend='ddp', early_stop_callback=False, fast_dev_run=False, final_div_factor=10000.0, flat=True, gpus=2, gradient_clip_val=1.0, limit_test_batches=1.0, limit_train_batches=1.0, limit_val_batches=1.0, log_gpu_memory=None, log_save_interval=100, logger=True, lr=3e-05, lr_mini=3e-07, lr_scheduler='polydecay', max_epochs=20, max_keep_ckpt=3, max_length=200, max_steps=None, min_epochs=1, min_steps=None, mrc_dropout=0.3, num_nodes=1, num_processes=1, num_sanity_val_steps=2, optimizer='torch.adam', overfit_batches=0.0, overfit_pct=None, precision=16, prepare_data_per_node=True, pretrained_checkpoint='', process_position=0, profiler=None, progress_bar_refresh_rate=1, reload_dataloaders_every_epoch=False, replace_sampler_ddp=True, resume_from_checkpoint=None, row_log_interval=50, seed=0, span_loss_candidates='pred_and_gold', sync_batchnorm=False, terminate_on_nan=False, test_percent_check=None, tpu_cores=<function Trainer._gpus_arg_default at 0x7f102decbb80>, track_grad_norm=-1, train_percent_check=None, truncated_bptt_steps=None, val_check_interval=0.2, val_percent_check=None, warmup_steps=0, weight_decay=0.01, weight_end=1.0, weight_span=0.1, weight_start=1.0, weights_save_path=None, weights_summary='top', workers=0)
+2022-01-18 19:29:36,267 - __main__ - Namespace(accumulate_grad_batches=4, adam_epsilon=1e-08, amp_backend='native', amp_level='O2', auto_lr_find=False, auto_scale_batch_size=False, auto_select_gpus=False, batch_size=10, benchmark=False, bert_config_dir='/nfs/yding4/AVE_project/mrc-for-flat-nested-ner/yd_data/bert-base-cased', bert_dropout=0.1, check_val_every_n_epoch=1, checkpoint_callback=True, chinese=False, classifier_act_func='gelu', classifier_intermediate_hidden_size=2048, data_dir='/nfs/yding4/AVE_project/consumable/title_bullet/33att/sample_data_1/mrc_for_ner/33_test/', default_root_dir='/nfs/yding4/AVE_project/mrc-for-flat-nested-ner/yd_script/01_18_2021/train_mrc_for_ner_test/mrc_ner', deterministic=False, distributed_backend='ddp', early_stop_callback=False, fast_dev_run=False, final_div_factor=10000.0, flat=True, gpus=2, gradient_clip_val=1.0, limit_test_batches=1.0, limit_train_batches=1.0, limit_val_batches=1.0, log_gpu_memory=None, log_save_interval=100, logger=True, lr=3e-05, lr_mini=3e-07, lr_scheduler='polydecay', max_epochs=20, max_keep_ckpt=3, max_length=200, max_steps=None, min_epochs=1, min_steps=None, mrc_dropout=0.3, num_nodes=1, num_processes=1, num_sanity_val_steps=2, optimizer='torch.adam', overfit_batches=0.0, overfit_pct=None, precision=16, prepare_data_per_node=True, pretrained_checkpoint='', process_position=0, profiler=None, progress_bar_refresh_rate=1, reload_dataloaders_every_epoch=False, replace_sampler_ddp=True, resume_from_checkpoint=None, row_log_interval=50, seed=0, span_loss_candidates='pred_and_gold', sync_batchnorm=False, terminate_on_nan=False, test_percent_check=None, tpu_cores=<function Trainer._gpus_arg_default at 0x7f102decbb80>, track_grad_norm=-1, train_percent_check=None, truncated_bptt_steps=None, val_check_interval=0.2, val_percent_check=None, warmup_steps=0, weight_decay=0.01, weight_end=1.0, weight_span=0.1, weight_start=1.0, weights_save_path=None, weights_summary='top', workers=0)
+2022-01-18 19:29:36,268 - lightning - Using native 16bit precision.
+2022-01-18 19:29:36,268 - lightning - initializing ddp: GLOBAL_RANK: 1, MEMBER: 2/2
+2022-01-18 19:29:42,448 - lightning - ----------------------------------------------------------------------------------------------------
+2022-01-18 19:29:42,448 - lightning - distributed_backend=ddp
+2022-01-18 19:29:42,448 - lightning - All DDP processes registered. Starting ddp with 2 processes
+2022-01-18 19:29:42,448 - lightning - ----------------------------------------------------------------------------------------------------
+2022-01-18 19:29:43,756 - lightning - 
+  | Name     | Type              | Params
+-----------------------------------------------
+0 | model    | BertQueryNER      | 111 M 
+1 | bce_loss | BCEWithLogitsLoss | 0     
+2 | span_f1  | QuerySpanF1       | 0     
+2022-01-18 19:29:46,314 - __main__ - EVAL INFO -> current_epoch is: 0, current_global_step is: 0 
+2022-01-18 19:29:46,315 - __main__ - EVAL INFO -> valid_f1 is: 0.0007917656912468374; precision: 0.00039635354187339544, recall: 0.3333333432674408.
+2022-01-18 19:29:46,326 - __main__ - EVAL INFO -> current_epoch is: 0, current_global_step is: 0 
+2022-01-18 19:29:46,326 - __main__ - EVAL INFO -> valid_f1 is: 0.0007917656912468374; precision: 0.00039635354187339544, recall: 0.3333333432674408.
+2022-01-18 19:29:47,801 - __main__ - EVAL INFO -> current_epoch is: 0, current_global_step is: 0 
+2022-01-18 19:29:47,801 - __main__ - EVAL INFO -> valid_f1 is: 0.00014659532462246716; precision: 7.333528628805652e-05, recall: 0.1428571492433548.
+2022-01-18 19:29:47,801 - __main__ - EVAL INFO -> current_epoch is: 0, current_global_step is: 0 
+2022-01-18 19:29:47,801 - __main__ - EVAL INFO -> valid_f1 is: 0.00014659532462246716; precision: 7.333528628805652e-05, recall: 0.1428571492433548.
+2022-01-18 19:29:47,809 - lightning - 
+Epoch 00000: span_f1 reached 0.00015 (best 0.00015), saving model to /nfs/yding4/AVE_project/mrc-for-flat-nested-ner/yd_script/01_18_2021/train_mrc_for_ner_test/mrc_ner/epoch=0_v2.ckpt as top 3
+2022-01-18 19:29:55,441 - __main__ - EVAL INFO -> current_epoch is: 0, current_global_step is: 0 
+2022-01-18 19:29:55,441 - __main__ - EVAL INFO -> valid_f1 is: 0.00014659532462246716; precision: 7.333528628805652e-05, recall: 0.1428571492433548.
+2022-01-18 19:29:55,441 - __main__ - EVAL INFO -> current_epoch is: 0, current_global_step is: 0 
+2022-01-18 19:29:55,441 - __main__ - EVAL INFO -> valid_f1 is: 0.00014659532462246716; precision: 7.333528628805652e-05, recall: 0.1428571492433548.
+2022-01-18 19:29:55,449 - lightning - 
+Epoch 00000: span_f1 reached 0.00015 (best 0.00015), saving model to /nfs/yding4/AVE_project/mrc-for-flat-nested-ner/yd_script/01_18_2021/train_mrc_for_ner_test/mrc_ner/epoch=0_v3.ckpt as top 3
+2022-01-18 19:30:02,804 - __main__ - EVAL INFO -> current_epoch is: 0, current_global_step is: 0 
+2022-01-18 19:30:02,804 - __main__ - EVAL INFO -> valid_f1 is: 0.00014659532462246716; precision: 7.333528628805652e-05, recall: 0.1428571492433548.
+2022-01-18 19:30:02,804 - __main__ - EVAL INFO -> current_epoch is: 0, current_global_step is: 0 
+2022-01-18 19:30:02,804 - __main__ - EVAL INFO -> valid_f1 is: 0.00014659532462246716; precision: 7.333528628805652e-05, recall: 0.1428571492433548.
+2022-01-18 19:30:02,812 - lightning - 
+Epoch 00000: span_f1 reached 0.00015 (best 0.00015), saving model to /nfs/yding4/AVE_project/mrc-for-flat-nested-ner/yd_script/01_18_2021/train_mrc_for_ner_test/mrc_ner/epoch=0_v4.ckpt as top 3
+2022-01-18 19:30:10,291 - __main__ - EVAL INFO -> current_epoch is: 0, current_global_step is: 0 
+2022-01-18 19:30:10,292 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:10,292 - __main__ - EVAL INFO -> current_epoch is: 0, current_global_step is: 0 
+2022-01-18 19:30:10,292 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:10,300 - lightning - 
+Epoch 00000: span_f1  was not in top 3
+2022-01-18 19:30:11,700 - __main__ - EVAL INFO -> current_epoch is: 0, current_global_step is: 1 
+2022-01-18 19:30:11,701 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:11,701 - __main__ - EVAL INFO -> current_epoch is: 0, current_global_step is: 1 
+2022-01-18 19:30:11,701 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:11,708 - lightning - 
+Epoch 00000: span_f1  was not in top 3
+2022-01-18 19:30:13,093 - __main__ - EVAL INFO -> current_epoch is: 1, current_global_step is: 2 
+2022-01-18 19:30:13,093 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:13,093 - __main__ - EVAL INFO -> current_epoch is: 1, current_global_step is: 2 
+2022-01-18 19:30:13,093 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:13,101 - lightning - 
+Epoch 00001: span_f1  was not in top 3
+2022-01-18 19:30:14,453 - __main__ - EVAL INFO -> current_epoch is: 1, current_global_step is: 2 
+2022-01-18 19:30:14,453 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:14,453 - __main__ - EVAL INFO -> current_epoch is: 1, current_global_step is: 2 
+2022-01-18 19:30:14,454 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:14,460 - lightning - 
+Epoch 00001: span_f1  was not in top 3
+2022-01-18 19:30:15,844 - __main__ - EVAL INFO -> current_epoch is: 1, current_global_step is: 2 
+2022-01-18 19:30:15,844 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:15,845 - __main__ - EVAL INFO -> current_epoch is: 1, current_global_step is: 2 
+2022-01-18 19:30:15,845 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:15,852 - lightning - 
+Epoch 00001: span_f1  was not in top 3
+2022-01-18 19:30:17,236 - __main__ - EVAL INFO -> current_epoch is: 1, current_global_step is: 2 
+2022-01-18 19:30:17,236 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:17,236 - __main__ - EVAL INFO -> current_epoch is: 1, current_global_step is: 2 
+2022-01-18 19:30:17,236 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:17,250 - lightning - 
+Epoch 00001: span_f1  was not in top 3
+2022-01-18 19:30:18,628 - __main__ - EVAL INFO -> current_epoch is: 1, current_global_step is: 3 
+2022-01-18 19:30:18,629 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:18,629 - __main__ - EVAL INFO -> current_epoch is: 1, current_global_step is: 3 
+2022-01-18 19:30:18,629 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:18,642 - lightning - 
+Epoch 00001: span_f1  was not in top 3
+2022-01-18 19:30:20,030 - __main__ - EVAL INFO -> current_epoch is: 2, current_global_step is: 4 
+2022-01-18 19:30:20,031 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:20,031 - __main__ - EVAL INFO -> current_epoch is: 2, current_global_step is: 4 
+2022-01-18 19:30:20,031 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:20,038 - lightning - 
+Epoch 00002: span_f1  was not in top 3
+2022-01-18 19:30:21,401 - __main__ - EVAL INFO -> current_epoch is: 2, current_global_step is: 4 
+2022-01-18 19:30:21,401 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:21,401 - __main__ - EVAL INFO -> current_epoch is: 2, current_global_step is: 4 
+2022-01-18 19:30:21,401 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:21,408 - lightning - 
+Epoch 00002: span_f1  was not in top 3
+2022-01-18 19:30:22,769 - __main__ - EVAL INFO -> current_epoch is: 2, current_global_step is: 4 
+2022-01-18 19:30:22,769 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:22,769 - __main__ - EVAL INFO -> current_epoch is: 2, current_global_step is: 4 
+2022-01-18 19:30:22,769 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:22,776 - lightning - 
+Epoch 00002: span_f1  was not in top 3
+2022-01-18 19:30:24,181 - __main__ - EVAL INFO -> current_epoch is: 2, current_global_step is: 4 
+2022-01-18 19:30:24,182 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:24,182 - __main__ - EVAL INFO -> current_epoch is: 2, current_global_step is: 4 
+2022-01-18 19:30:24,182 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:24,191 - lightning - 
+Epoch 00002: span_f1  was not in top 3
+2022-01-18 19:30:25,555 - __main__ - EVAL INFO -> current_epoch is: 2, current_global_step is: 5 
+2022-01-18 19:30:25,556 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:25,556 - __main__ - EVAL INFO -> current_epoch is: 2, current_global_step is: 5 
+2022-01-18 19:30:25,556 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:25,563 - lightning - 
+Epoch 00002: span_f1  was not in top 3
+2022-01-18 19:30:26,970 - __main__ - EVAL INFO -> current_epoch is: 3, current_global_step is: 6 
+2022-01-18 19:30:26,970 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:26,970 - __main__ - EVAL INFO -> current_epoch is: 3, current_global_step is: 6 
+2022-01-18 19:30:26,971 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:26,977 - lightning - 
+Epoch 00003: span_f1  was not in top 3
+2022-01-18 19:30:28,363 - __main__ - EVAL INFO -> current_epoch is: 3, current_global_step is: 6 
+2022-01-18 19:30:28,363 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:28,363 - __main__ - EVAL INFO -> current_epoch is: 3, current_global_step is: 6 
+2022-01-18 19:30:28,364 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:28,370 - lightning - 
+Epoch 00003: span_f1  was not in top 3
+2022-01-18 19:30:29,726 - __main__ - EVAL INFO -> current_epoch is: 3, current_global_step is: 6 
+2022-01-18 19:30:29,727 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:29,727 - __main__ - EVAL INFO -> current_epoch is: 3, current_global_step is: 6 
+2022-01-18 19:30:29,727 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:29,734 - lightning - 
+Epoch 00003: span_f1  was not in top 3
+2022-01-18 19:30:31,110 - __main__ - EVAL INFO -> current_epoch is: 3, current_global_step is: 6 
+2022-01-18 19:30:31,110 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:31,110 - __main__ - EVAL INFO -> current_epoch is: 3, current_global_step is: 6 
+2022-01-18 19:30:31,110 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:31,118 - lightning - 
+Epoch 00003: span_f1  was not in top 3
+2022-01-18 19:30:32,484 - __main__ - EVAL INFO -> current_epoch is: 3, current_global_step is: 7 
+2022-01-18 19:30:32,485 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:32,485 - __main__ - EVAL INFO -> current_epoch is: 3, current_global_step is: 7 
+2022-01-18 19:30:32,485 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:32,492 - lightning - 
+Epoch 00003: span_f1  was not in top 3
+2022-01-18 19:30:33,872 - __main__ - EVAL INFO -> current_epoch is: 4, current_global_step is: 8 
+2022-01-18 19:30:33,872 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:33,872 - __main__ - EVAL INFO -> current_epoch is: 4, current_global_step is: 8 
+2022-01-18 19:30:33,872 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:33,880 - lightning - 
+Epoch 00004: span_f1  was not in top 3
+2022-01-18 19:30:35,257 - __main__ - EVAL INFO -> current_epoch is: 4, current_global_step is: 8 
+2022-01-18 19:30:35,257 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:35,257 - __main__ - EVAL INFO -> current_epoch is: 4, current_global_step is: 8 
+2022-01-18 19:30:35,257 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:35,265 - lightning - 
+Epoch 00004: span_f1  was not in top 3
+2022-01-18 19:30:36,645 - __main__ - EVAL INFO -> current_epoch is: 4, current_global_step is: 8 
+2022-01-18 19:30:36,645 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:36,645 - __main__ - EVAL INFO -> current_epoch is: 4, current_global_step is: 8 
+2022-01-18 19:30:36,645 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:36,652 - lightning - 
+Epoch 00004: span_f1  was not in top 3
+2022-01-18 19:30:38,040 - __main__ - EVAL INFO -> current_epoch is: 4, current_global_step is: 8 
+2022-01-18 19:30:38,040 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:38,040 - __main__ - EVAL INFO -> current_epoch is: 4, current_global_step is: 8 
+2022-01-18 19:30:38,040 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:38,048 - lightning - 
+Epoch 00004: span_f1  was not in top 3
+2022-01-18 19:30:39,427 - __main__ - EVAL INFO -> current_epoch is: 4, current_global_step is: 9 
+2022-01-18 19:30:39,427 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:39,427 - __main__ - EVAL INFO -> current_epoch is: 4, current_global_step is: 9 
+2022-01-18 19:30:39,427 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:39,434 - lightning - 
+Epoch 00004: span_f1  was not in top 3
+2022-01-18 19:30:40,809 - __main__ - EVAL INFO -> current_epoch is: 5, current_global_step is: 10 
+2022-01-18 19:30:40,809 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:40,809 - __main__ - EVAL INFO -> current_epoch is: 5, current_global_step is: 10 
+2022-01-18 19:30:40,810 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:40,816 - lightning - 
+Epoch 00005: span_f1  was not in top 3
+2022-01-18 19:30:42,182 - __main__ - EVAL INFO -> current_epoch is: 5, current_global_step is: 10 
+2022-01-18 19:30:42,182 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:42,182 - __main__ - EVAL INFO -> current_epoch is: 5, current_global_step is: 10 
+2022-01-18 19:30:42,183 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:42,189 - lightning - 
+Epoch 00005: span_f1  was not in top 3
+2022-01-18 19:30:43,543 - __main__ - EVAL INFO -> current_epoch is: 5, current_global_step is: 10 
+2022-01-18 19:30:43,543 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:43,543 - __main__ - EVAL INFO -> current_epoch is: 5, current_global_step is: 10 
+2022-01-18 19:30:43,543 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:43,551 - lightning - 
+Epoch 00005: span_f1  was not in top 3
+2022-01-18 19:30:44,927 - __main__ - EVAL INFO -> current_epoch is: 5, current_global_step is: 10 
+2022-01-18 19:30:44,927 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:44,928 - __main__ - EVAL INFO -> current_epoch is: 5, current_global_step is: 10 
+2022-01-18 19:30:44,928 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:44,935 - lightning - 
+Epoch 00005: span_f1  was not in top 3
+2022-01-18 19:30:46,306 - __main__ - EVAL INFO -> current_epoch is: 5, current_global_step is: 11 
+2022-01-18 19:30:46,306 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:46,306 - __main__ - EVAL INFO -> current_epoch is: 5, current_global_step is: 11 
+2022-01-18 19:30:46,307 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:46,313 - lightning - 
+Epoch 00005: span_f1  was not in top 3
+2022-01-18 19:30:47,697 - __main__ - EVAL INFO -> current_epoch is: 6, current_global_step is: 12 
+2022-01-18 19:30:47,697 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:47,697 - __main__ - EVAL INFO -> current_epoch is: 6, current_global_step is: 12 
+2022-01-18 19:30:47,697 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:47,704 - lightning - 
+Epoch 00006: span_f1  was not in top 3
+2022-01-18 19:30:49,078 - __main__ - EVAL INFO -> current_epoch is: 6, current_global_step is: 12 
+2022-01-18 19:30:49,078 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:49,079 - __main__ - EVAL INFO -> current_epoch is: 6, current_global_step is: 12 
+2022-01-18 19:30:49,079 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:49,086 - lightning - 
+Epoch 00006: span_f1  was not in top 3
+2022-01-18 19:30:50,440 - __main__ - EVAL INFO -> current_epoch is: 6, current_global_step is: 12 
+2022-01-18 19:30:50,440 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:50,440 - __main__ - EVAL INFO -> current_epoch is: 6, current_global_step is: 12 
+2022-01-18 19:30:50,441 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:50,447 - lightning - 
+Epoch 00006: span_f1  was not in top 3
+2022-01-18 19:30:51,874 - __main__ - EVAL INFO -> current_epoch is: 6, current_global_step is: 12 
+2022-01-18 19:30:51,875 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:51,875 - __main__ - EVAL INFO -> current_epoch is: 6, current_global_step is: 12 
+2022-01-18 19:30:51,875 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:51,882 - lightning - 
+Epoch 00006: span_f1  was not in top 3
+2022-01-18 19:30:53,249 - __main__ - EVAL INFO -> current_epoch is: 6, current_global_step is: 13 
+2022-01-18 19:30:53,250 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:53,250 - __main__ - EVAL INFO -> current_epoch is: 6, current_global_step is: 13 
+2022-01-18 19:30:53,250 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:53,257 - lightning - 
+Epoch 00006: span_f1  was not in top 3
+2022-01-18 19:30:54,637 - __main__ - EVAL INFO -> current_epoch is: 7, current_global_step is: 14 
+2022-01-18 19:30:54,637 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:54,637 - __main__ - EVAL INFO -> current_epoch is: 7, current_global_step is: 14 
+2022-01-18 19:30:54,637 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:54,644 - lightning - 
+Epoch 00007: span_f1  was not in top 3
+2022-01-18 19:30:56,000 - __main__ - EVAL INFO -> current_epoch is: 7, current_global_step is: 14 
+2022-01-18 19:30:56,000 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:56,000 - __main__ - EVAL INFO -> current_epoch is: 7, current_global_step is: 14 
+2022-01-18 19:30:56,001 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:56,007 - lightning - 
+Epoch 00007: span_f1  was not in top 3
+2022-01-18 19:30:57,353 - __main__ - EVAL INFO -> current_epoch is: 7, current_global_step is: 14 
+2022-01-18 19:30:57,353 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:57,353 - __main__ - EVAL INFO -> current_epoch is: 7, current_global_step is: 14 
+2022-01-18 19:30:57,354 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:57,360 - lightning - 
+Epoch 00007: span_f1  was not in top 3
+2022-01-18 19:30:58,749 - __main__ - EVAL INFO -> current_epoch is: 7, current_global_step is: 14 
+2022-01-18 19:30:58,749 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:58,749 - __main__ - EVAL INFO -> current_epoch is: 7, current_global_step is: 14 
+2022-01-18 19:30:58,750 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:30:58,758 - lightning - 
+Epoch 00007: span_f1  was not in top 3
+2022-01-18 19:31:00,161 - __main__ - EVAL INFO -> current_epoch is: 7, current_global_step is: 15 
+2022-01-18 19:31:00,161 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:00,161 - __main__ - EVAL INFO -> current_epoch is: 7, current_global_step is: 15 
+2022-01-18 19:31:00,161 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:00,168 - lightning - 
+Epoch 00007: span_f1  was not in top 3
+2022-01-18 19:31:01,648 - __main__ - EVAL INFO -> current_epoch is: 8, current_global_step is: 16 
+2022-01-18 19:31:01,649 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:01,649 - __main__ - EVAL INFO -> current_epoch is: 8, current_global_step is: 16 
+2022-01-18 19:31:01,649 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:01,656 - lightning - 
+Epoch 00008: span_f1  was not in top 3
+2022-01-18 19:31:03,032 - __main__ - EVAL INFO -> current_epoch is: 8, current_global_step is: 16 
+2022-01-18 19:31:03,032 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:03,032 - __main__ - EVAL INFO -> current_epoch is: 8, current_global_step is: 16 
+2022-01-18 19:31:03,032 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:03,039 - lightning - 
+Epoch 00008: span_f1  was not in top 3
+2022-01-18 19:31:04,406 - __main__ - EVAL INFO -> current_epoch is: 8, current_global_step is: 16 
+2022-01-18 19:31:04,406 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:04,406 - __main__ - EVAL INFO -> current_epoch is: 8, current_global_step is: 16 
+2022-01-18 19:31:04,407 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:04,413 - lightning - 
+Epoch 00008: span_f1  was not in top 3
+2022-01-18 19:31:05,795 - __main__ - EVAL INFO -> current_epoch is: 8, current_global_step is: 16 
+2022-01-18 19:31:05,795 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:05,796 - __main__ - EVAL INFO -> current_epoch is: 8, current_global_step is: 16 
+2022-01-18 19:31:05,796 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:05,803 - lightning - 
+Epoch 00008: span_f1  was not in top 3
+2022-01-18 19:31:07,158 - __main__ - EVAL INFO -> current_epoch is: 8, current_global_step is: 17 
+2022-01-18 19:31:07,158 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:07,158 - __main__ - EVAL INFO -> current_epoch is: 8, current_global_step is: 17 
+2022-01-18 19:31:07,159 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:07,165 - lightning - 
+Epoch 00008: span_f1  was not in top 3
+2022-01-18 19:31:08,616 - __main__ - EVAL INFO -> current_epoch is: 9, current_global_step is: 18 
+2022-01-18 19:31:08,616 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:08,616 - __main__ - EVAL INFO -> current_epoch is: 9, current_global_step is: 18 
+2022-01-18 19:31:08,616 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:08,623 - lightning - 
+Epoch 00009: span_f1  was not in top 3
+2022-01-18 19:31:09,981 - __main__ - EVAL INFO -> current_epoch is: 9, current_global_step is: 18 
+2022-01-18 19:31:09,982 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:09,982 - __main__ - EVAL INFO -> current_epoch is: 9, current_global_step is: 18 
+2022-01-18 19:31:09,982 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:09,989 - lightning - 
+Epoch 00009: span_f1  was not in top 3
+2022-01-18 19:31:11,398 - __main__ - EVAL INFO -> current_epoch is: 9, current_global_step is: 18 
+2022-01-18 19:31:11,398 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:11,398 - __main__ - EVAL INFO -> current_epoch is: 9, current_global_step is: 18 
+2022-01-18 19:31:11,398 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:11,405 - lightning - 
+Epoch 00009: span_f1  was not in top 3
+2022-01-18 19:31:12,808 - __main__ - EVAL INFO -> current_epoch is: 9, current_global_step is: 18 
+2022-01-18 19:31:12,808 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:12,808 - __main__ - EVAL INFO -> current_epoch is: 9, current_global_step is: 18 
+2022-01-18 19:31:12,809 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:12,816 - lightning - 
+Epoch 00009: span_f1  was not in top 3
+2022-01-18 19:31:14,218 - __main__ - EVAL INFO -> current_epoch is: 9, current_global_step is: 19 
+2022-01-18 19:31:14,218 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:14,218 - __main__ - EVAL INFO -> current_epoch is: 9, current_global_step is: 19 
+2022-01-18 19:31:14,218 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:14,225 - lightning - 
+Epoch 00009: span_f1  was not in top 3
+2022-01-18 19:31:15,608 - __main__ - EVAL INFO -> current_epoch is: 10, current_global_step is: 20 
+2022-01-18 19:31:15,609 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:15,609 - __main__ - EVAL INFO -> current_epoch is: 10, current_global_step is: 20 
+2022-01-18 19:31:15,609 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:15,619 - lightning - 
+Epoch 00010: span_f1  was not in top 3
+2022-01-18 19:31:16,984 - __main__ - EVAL INFO -> current_epoch is: 10, current_global_step is: 20 
+2022-01-18 19:31:16,984 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:16,984 - __main__ - EVAL INFO -> current_epoch is: 10, current_global_step is: 20 
+2022-01-18 19:31:16,984 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:16,991 - lightning - 
+Epoch 00010: span_f1  was not in top 3
+2022-01-18 19:31:18,352 - __main__ - EVAL INFO -> current_epoch is: 10, current_global_step is: 20 
+2022-01-18 19:31:18,352 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:18,352 - __main__ - EVAL INFO -> current_epoch is: 10, current_global_step is: 20 
+2022-01-18 19:31:18,352 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:18,359 - lightning - 
+Epoch 00010: span_f1  was not in top 3
+2022-01-18 19:31:19,793 - __main__ - EVAL INFO -> current_epoch is: 10, current_global_step is: 20 
+2022-01-18 19:31:19,794 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:19,794 - __main__ - EVAL INFO -> current_epoch is: 10, current_global_step is: 20 
+2022-01-18 19:31:19,794 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:19,801 - lightning - 
+Epoch 00010: span_f1  was not in top 3
+2022-01-18 19:31:21,173 - __main__ - EVAL INFO -> current_epoch is: 10, current_global_step is: 21 
+2022-01-18 19:31:21,173 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:21,174 - __main__ - EVAL INFO -> current_epoch is: 10, current_global_step is: 21 
+2022-01-18 19:31:21,174 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:21,181 - lightning - 
+Epoch 00010: span_f1  was not in top 3
+2022-01-18 19:31:22,574 - __main__ - EVAL INFO -> current_epoch is: 11, current_global_step is: 22 
+2022-01-18 19:31:22,574 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:22,574 - __main__ - EVAL INFO -> current_epoch is: 11, current_global_step is: 22 
+2022-01-18 19:31:22,574 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:22,581 - lightning - 
+Epoch 00011: span_f1  was not in top 3
+2022-01-18 19:31:23,924 - __main__ - EVAL INFO -> current_epoch is: 11, current_global_step is: 22 
+2022-01-18 19:31:23,925 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:23,925 - __main__ - EVAL INFO -> current_epoch is: 11, current_global_step is: 22 
+2022-01-18 19:31:23,925 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:23,932 - lightning - 
+Epoch 00011: span_f1  was not in top 3
+2022-01-18 19:31:25,312 - __main__ - EVAL INFO -> current_epoch is: 11, current_global_step is: 22 
+2022-01-18 19:31:25,312 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:25,312 - __main__ - EVAL INFO -> current_epoch is: 11, current_global_step is: 22 
+2022-01-18 19:31:25,312 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:25,320 - lightning - 
+Epoch 00011: span_f1  was not in top 3
+2022-01-18 19:31:26,726 - __main__ - EVAL INFO -> current_epoch is: 11, current_global_step is: 22 
+2022-01-18 19:31:26,727 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:26,727 - __main__ - EVAL INFO -> current_epoch is: 11, current_global_step is: 22 
+2022-01-18 19:31:26,727 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:26,734 - lightning - 
+Epoch 00011: span_f1  was not in top 3
+2022-01-18 19:31:28,100 - __main__ - EVAL INFO -> current_epoch is: 11, current_global_step is: 23 
+2022-01-18 19:31:28,100 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:28,100 - __main__ - EVAL INFO -> current_epoch is: 11, current_global_step is: 23 
+2022-01-18 19:31:28,100 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:28,107 - lightning - 
+Epoch 00011: span_f1  was not in top 3
+2022-01-18 19:31:29,502 - __main__ - EVAL INFO -> current_epoch is: 12, current_global_step is: 24 
+2022-01-18 19:31:29,502 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:29,502 - __main__ - EVAL INFO -> current_epoch is: 12, current_global_step is: 24 
+2022-01-18 19:31:29,502 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:29,509 - lightning - 
+Epoch 00012: span_f1  was not in top 3
+2022-01-18 19:31:30,896 - __main__ - EVAL INFO -> current_epoch is: 12, current_global_step is: 24 
+2022-01-18 19:31:30,896 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:30,896 - __main__ - EVAL INFO -> current_epoch is: 12, current_global_step is: 24 
+2022-01-18 19:31:30,896 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:30,903 - lightning - 
+Epoch 00012: span_f1  was not in top 3
+2022-01-18 19:31:32,268 - __main__ - EVAL INFO -> current_epoch is: 12, current_global_step is: 24 
+2022-01-18 19:31:32,268 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:32,268 - __main__ - EVAL INFO -> current_epoch is: 12, current_global_step is: 24 
+2022-01-18 19:31:32,268 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:32,275 - lightning - 
+Epoch 00012: span_f1  was not in top 3
+2022-01-18 19:31:33,673 - __main__ - EVAL INFO -> current_epoch is: 12, current_global_step is: 24 
+2022-01-18 19:31:33,673 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:33,674 - __main__ - EVAL INFO -> current_epoch is: 12, current_global_step is: 24 
+2022-01-18 19:31:33,674 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:33,682 - lightning - 
+Epoch 00012: span_f1  was not in top 3
+2022-01-18 19:31:35,054 - __main__ - EVAL INFO -> current_epoch is: 12, current_global_step is: 25 
+2022-01-18 19:31:35,055 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:35,055 - __main__ - EVAL INFO -> current_epoch is: 12, current_global_step is: 25 
+2022-01-18 19:31:35,055 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:35,062 - lightning - 
+Epoch 00012: span_f1  was not in top 3
+2022-01-18 19:31:36,450 - __main__ - EVAL INFO -> current_epoch is: 13, current_global_step is: 26 
+2022-01-18 19:31:36,450 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:36,451 - __main__ - EVAL INFO -> current_epoch is: 13, current_global_step is: 26 
+2022-01-18 19:31:36,451 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:36,457 - lightning - 
+Epoch 00013: span_f1  was not in top 3
+2022-01-18 19:31:37,804 - __main__ - EVAL INFO -> current_epoch is: 13, current_global_step is: 26 
+2022-01-18 19:31:37,805 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:37,805 - __main__ - EVAL INFO -> current_epoch is: 13, current_global_step is: 26 
+2022-01-18 19:31:37,805 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:37,812 - lightning - 
+Epoch 00013: span_f1  was not in top 3
+2022-01-18 19:31:39,179 - __main__ - EVAL INFO -> current_epoch is: 13, current_global_step is: 26 
+2022-01-18 19:31:39,180 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:39,180 - __main__ - EVAL INFO -> current_epoch is: 13, current_global_step is: 26 
+2022-01-18 19:31:39,180 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:39,187 - lightning - 
+Epoch 00013: span_f1  was not in top 3
+2022-01-18 19:31:40,573 - __main__ - EVAL INFO -> current_epoch is: 13, current_global_step is: 26 
+2022-01-18 19:31:40,573 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:40,574 - __main__ - EVAL INFO -> current_epoch is: 13, current_global_step is: 26 
+2022-01-18 19:31:40,574 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:40,582 - lightning - 
+Epoch 00013: span_f1  was not in top 3
+2022-01-18 19:31:41,983 - __main__ - EVAL INFO -> current_epoch is: 13, current_global_step is: 27 
+2022-01-18 19:31:41,983 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:41,983 - __main__ - EVAL INFO -> current_epoch is: 13, current_global_step is: 27 
+2022-01-18 19:31:41,983 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:41,990 - lightning - 
+Epoch 00013: span_f1  was not in top 3
+2022-01-18 19:31:43,385 - __main__ - EVAL INFO -> current_epoch is: 14, current_global_step is: 28 
+2022-01-18 19:31:43,385 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:43,385 - __main__ - EVAL INFO -> current_epoch is: 14, current_global_step is: 28 
+2022-01-18 19:31:43,385 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:43,392 - lightning - 
+Epoch 00014: span_f1  was not in top 3
+2022-01-18 19:31:44,748 - __main__ - EVAL INFO -> current_epoch is: 14, current_global_step is: 28 
+2022-01-18 19:31:44,748 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:44,748 - __main__ - EVAL INFO -> current_epoch is: 14, current_global_step is: 28 
+2022-01-18 19:31:44,749 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:44,755 - lightning - 
+Epoch 00014: span_f1  was not in top 3
+2022-01-18 19:31:46,113 - __main__ - EVAL INFO -> current_epoch is: 14, current_global_step is: 28 
+2022-01-18 19:31:46,114 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:46,114 - __main__ - EVAL INFO -> current_epoch is: 14, current_global_step is: 28 
+2022-01-18 19:31:46,114 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:46,120 - lightning - 
+Epoch 00014: span_f1  was not in top 3
+2022-01-18 19:31:47,504 - __main__ - EVAL INFO -> current_epoch is: 14, current_global_step is: 28 
+2022-01-18 19:31:47,504 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:47,504 - __main__ - EVAL INFO -> current_epoch is: 14, current_global_step is: 28 
+2022-01-18 19:31:47,505 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:47,513 - lightning - 
+Epoch 00014: span_f1  was not in top 3
+2022-01-18 19:31:48,867 - __main__ - EVAL INFO -> current_epoch is: 14, current_global_step is: 29 
+2022-01-18 19:31:48,867 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:48,867 - __main__ - EVAL INFO -> current_epoch is: 14, current_global_step is: 29 
+2022-01-18 19:31:48,868 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:48,874 - lightning - 
+Epoch 00014: span_f1  was not in top 3
+2022-01-18 19:31:50,268 - __main__ - EVAL INFO -> current_epoch is: 15, current_global_step is: 30 
+2022-01-18 19:31:50,269 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:50,269 - __main__ - EVAL INFO -> current_epoch is: 15, current_global_step is: 30 
+2022-01-18 19:31:50,269 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:50,277 - lightning - 
+Epoch 00015: span_f1  was not in top 3
+2022-01-18 19:31:51,644 - __main__ - EVAL INFO -> current_epoch is: 15, current_global_step is: 30 
+2022-01-18 19:31:51,644 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:51,645 - __main__ - EVAL INFO -> current_epoch is: 15, current_global_step is: 30 
+2022-01-18 19:31:51,645 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:51,652 - lightning - 
+Epoch 00015: span_f1  was not in top 3
+2022-01-18 19:31:53,034 - __main__ - EVAL INFO -> current_epoch is: 15, current_global_step is: 30 
+2022-01-18 19:31:53,034 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:53,034 - __main__ - EVAL INFO -> current_epoch is: 15, current_global_step is: 30 
+2022-01-18 19:31:53,035 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:53,041 - lightning - 
+Epoch 00015: span_f1  was not in top 3
+2022-01-18 19:31:54,432 - __main__ - EVAL INFO -> current_epoch is: 15, current_global_step is: 30 
+2022-01-18 19:31:54,432 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:54,433 - __main__ - EVAL INFO -> current_epoch is: 15, current_global_step is: 30 
+2022-01-18 19:31:54,433 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:54,448 - lightning - 
+Epoch 00015: span_f1  was not in top 3
+2022-01-18 19:31:55,827 - __main__ - EVAL INFO -> current_epoch is: 15, current_global_step is: 31 
+2022-01-18 19:31:55,827 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:55,828 - __main__ - EVAL INFO -> current_epoch is: 15, current_global_step is: 31 
+2022-01-18 19:31:55,828 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:55,835 - lightning - 
+Epoch 00015: span_f1  was not in top 3
+2022-01-18 19:31:57,234 - __main__ - EVAL INFO -> current_epoch is: 16, current_global_step is: 32 
+2022-01-18 19:31:57,234 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:57,234 - __main__ - EVAL INFO -> current_epoch is: 16, current_global_step is: 32 
+2022-01-18 19:31:57,235 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:57,242 - lightning - 
+Epoch 00016: span_f1  was not in top 3
+2022-01-18 19:31:58,590 - __main__ - EVAL INFO -> current_epoch is: 16, current_global_step is: 32 
+2022-01-18 19:31:58,590 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:58,590 - __main__ - EVAL INFO -> current_epoch is: 16, current_global_step is: 32 
+2022-01-18 19:31:58,590 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:58,597 - lightning - 
+Epoch 00016: span_f1  was not in top 3
+2022-01-18 19:31:59,956 - __main__ - EVAL INFO -> current_epoch is: 16, current_global_step is: 32 
+2022-01-18 19:31:59,956 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:59,956 - __main__ - EVAL INFO -> current_epoch is: 16, current_global_step is: 32 
+2022-01-18 19:31:59,956 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:31:59,963 - lightning - 
+Epoch 00016: span_f1  was not in top 3
+2022-01-18 19:32:01,363 - __main__ - EVAL INFO -> current_epoch is: 16, current_global_step is: 32 
+2022-01-18 19:32:01,364 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:01,364 - __main__ - EVAL INFO -> current_epoch is: 16, current_global_step is: 32 
+2022-01-18 19:32:01,364 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:01,372 - lightning - 
+Epoch 00016: span_f1  was not in top 3
+2022-01-18 19:32:02,755 - __main__ - EVAL INFO -> current_epoch is: 16, current_global_step is: 33 
+2022-01-18 19:32:02,755 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:02,755 - __main__ - EVAL INFO -> current_epoch is: 16, current_global_step is: 33 
+2022-01-18 19:32:02,756 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:02,762 - lightning - 
+Epoch 00016: span_f1  was not in top 3
+2022-01-18 19:32:04,208 - __main__ - EVAL INFO -> current_epoch is: 17, current_global_step is: 34 
+2022-01-18 19:32:04,208 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:04,208 - __main__ - EVAL INFO -> current_epoch is: 17, current_global_step is: 34 
+2022-01-18 19:32:04,209 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:04,215 - lightning - 
+Epoch 00017: span_f1  was not in top 3
+2022-01-18 19:32:05,576 - __main__ - EVAL INFO -> current_epoch is: 17, current_global_step is: 34 
+2022-01-18 19:32:05,576 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:05,577 - __main__ - EVAL INFO -> current_epoch is: 17, current_global_step is: 34 
+2022-01-18 19:32:05,577 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:05,583 - lightning - 
+Epoch 00017: span_f1  was not in top 3
+2022-01-18 19:32:06,951 - __main__ - EVAL INFO -> current_epoch is: 17, current_global_step is: 34 
+2022-01-18 19:32:06,951 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:06,951 - __main__ - EVAL INFO -> current_epoch is: 17, current_global_step is: 34 
+2022-01-18 19:32:06,952 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:06,958 - lightning - 
+Epoch 00017: span_f1  was not in top 3
+2022-01-18 19:32:08,337 - __main__ - EVAL INFO -> current_epoch is: 17, current_global_step is: 34 
+2022-01-18 19:32:08,337 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:08,337 - __main__ - EVAL INFO -> current_epoch is: 17, current_global_step is: 34 
+2022-01-18 19:32:08,338 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:08,345 - lightning - 
+Epoch 00017: span_f1  was not in top 3
+2022-01-18 19:32:09,742 - __main__ - EVAL INFO -> current_epoch is: 17, current_global_step is: 35 
+2022-01-18 19:32:09,742 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:09,742 - __main__ - EVAL INFO -> current_epoch is: 17, current_global_step is: 35 
+2022-01-18 19:32:09,742 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:09,749 - lightning - 
+Epoch 00017: span_f1  was not in top 3
+2022-01-18 19:32:11,120 - __main__ - EVAL INFO -> current_epoch is: 18, current_global_step is: 36 
+2022-01-18 19:32:11,120 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:11,121 - __main__ - EVAL INFO -> current_epoch is: 18, current_global_step is: 36 
+2022-01-18 19:32:11,121 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:11,128 - lightning - 
+Epoch 00018: span_f1  was not in top 3
+2022-01-18 19:32:12,506 - __main__ - EVAL INFO -> current_epoch is: 18, current_global_step is: 36 
+2022-01-18 19:32:12,507 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:12,507 - __main__ - EVAL INFO -> current_epoch is: 18, current_global_step is: 36 
+2022-01-18 19:32:12,507 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:12,514 - lightning - 
+Epoch 00018: span_f1  was not in top 3
+2022-01-18 19:32:13,912 - __main__ - EVAL INFO -> current_epoch is: 18, current_global_step is: 36 
+2022-01-18 19:32:13,912 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:13,912 - __main__ - EVAL INFO -> current_epoch is: 18, current_global_step is: 36 
+2022-01-18 19:32:13,912 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:13,919 - lightning - 
+Epoch 00018: span_f1  was not in top 3
+2022-01-18 19:32:15,298 - __main__ - EVAL INFO -> current_epoch is: 18, current_global_step is: 36 
+2022-01-18 19:32:15,299 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:15,299 - __main__ - EVAL INFO -> current_epoch is: 18, current_global_step is: 36 
+2022-01-18 19:32:15,299 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:15,306 - lightning - 
+Epoch 00018: span_f1  was not in top 3
+2022-01-18 19:32:16,702 - __main__ - EVAL INFO -> current_epoch is: 18, current_global_step is: 37 
+2022-01-18 19:32:16,702 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:16,702 - __main__ - EVAL INFO -> current_epoch is: 18, current_global_step is: 37 
+2022-01-18 19:32:16,702 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:16,820 - lightning - 
+Epoch 00018: span_f1  was not in top 3
+2022-01-18 19:32:18,210 - __main__ - EVAL INFO -> current_epoch is: 19, current_global_step is: 38 
+2022-01-18 19:32:18,211 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:18,211 - __main__ - EVAL INFO -> current_epoch is: 19, current_global_step is: 38 
+2022-01-18 19:32:18,211 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:18,218 - lightning - 
+Epoch 00019: span_f1  was not in top 3
+2022-01-18 19:32:19,593 - __main__ - EVAL INFO -> current_epoch is: 19, current_global_step is: 38 
+2022-01-18 19:32:19,594 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:19,594 - __main__ - EVAL INFO -> current_epoch is: 19, current_global_step is: 38 
+2022-01-18 19:32:19,594 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:19,607 - lightning - 
+Epoch 00019: span_f1  was not in top 3
+2022-01-18 19:32:20,970 - __main__ - EVAL INFO -> current_epoch is: 19, current_global_step is: 38 
+2022-01-18 19:32:20,971 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:20,971 - __main__ - EVAL INFO -> current_epoch is: 19, current_global_step is: 38 
+2022-01-18 19:32:20,971 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:20,984 - lightning - 
+Epoch 00019: span_f1  was not in top 3
+2022-01-18 19:32:22,375 - __main__ - EVAL INFO -> current_epoch is: 19, current_global_step is: 38 
+2022-01-18 19:32:22,375 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:22,375 - __main__ - EVAL INFO -> current_epoch is: 19, current_global_step is: 38 
+2022-01-18 19:32:22,376 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:22,383 - lightning - 
+Epoch 00019: span_f1  was not in top 3
+2022-01-18 19:32:23,769 - __main__ - EVAL INFO -> current_epoch is: 19, current_global_step is: 39 
+2022-01-18 19:32:23,770 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:23,770 - __main__ - EVAL INFO -> current_epoch is: 19, current_global_step is: 39 
+2022-01-18 19:32:23,770 - __main__ - EVAL INFO -> valid_f1 is: 0.0; precision: 0.0, recall: 0.0.
+2022-01-18 19:32:23,772 - lightning - Saving latest checkpoint..
+2022-01-18 19:32:23,777 - lightning - 
+Epoch 00019: span_f1  was not in top 3
+2022-01-18 19:32:23,782 - lightning - Saving latest checkpoint..
+2022-01-18 19:32:24,635 - __main__ - =&=&=&=&=&=&=&=&=&=&=&=&=&=&=&=&=&=&=&=&
+2022-01-18 19:32:24,635 - __main__ - Best F1 on DEV is 0.00015
+2022-01-18 19:32:24,635 - __main__ - Best checkpoint on DEV set is /nfs/yding4/AVE_project/mrc-for-flat-nested-ner/yd_script/01_18_2021/train_mrc_for_ner_test/mrc_ner/epoch=0_v4.ckpt
+2022-01-18 19:32:25,508 - __main__ - =&=&=&=&=&=&=&=&=&=&=&=&=&=&=&=&=&=&=&=&
