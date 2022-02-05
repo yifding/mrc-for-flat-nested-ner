@@ -4,6 +4,7 @@
 # file: mrc_ner_dataset.py
 
 import json
+import jsonlines
 import torch
 from tokenizers import BertWordPieceTokenizer
 from torch.utils.data import Dataset
@@ -113,21 +114,22 @@ class MRCNERDataset(Dataset):
                 print(f"tokens: {tokens}")
                 print(f"offset: {offsets}")
                 # print(f"data: {data}")
-                with open(f"start_{item}.json", "w") as writer:
-                    json.dump([data], writer, ensure_ascii=False, indent=2)
+                with jsonlines.open(f"start_{item}.json", "w") as writer:
+                    writer.write_all([data])
 
                 import sys
                 sys.exit()
         for end in end_positions:
-            if end not in origin_offset2token_idx_start:
+            if end not in origin_offset2token_idx_end:
                 print(f"item: {item}")
                 # print(f"context: {context}")
                 # print(f"tokens: {tokens}")
                 # print(f"offset: {offsets}")
                 print(f"end: {end}")
                 print(f"origin_offset2token_idx_start: {origin_offset2token_idx_start}")
-                with open(f"end_{item}.json", "w") as writer:
-                    json.dump([data], writer, ensure_ascii=False, indent=2)
+                with jsonlines.open(f"end_{item}.json", "w") as writer:
+                    writer.write_all([data])
+
                 import sys
                 sys.exit()
         new_start_positions = [origin_offset2token_idx_start[start] for start in start_positions]
@@ -228,10 +230,10 @@ def run_dataset():
     is_chinese = True
     """
 
-    bert_path = "/nfs/yding4/AVE_project/mrc-for-flat-nested-ner/yd_data/bert-base-cased"
+    bert_path = "/scratch365/pliang/AVE_project/mrc-for-flat-nested-ner/yd_data/bert-base-cased"
     vocab_file = os.path.join(bert_path, "vocab.txt")
     # json_path = "/nfs/yding4/AVE_project/consumable/title_bullet/33att/sample_data_1/mrc_for_ner/33att/mrc-ner.train"
-    json_path = "/nfs/yding4/AVE_project/mrc-for-flat-nested-ner/yd_script/01_18_2021/end_33.json"
+    json_path = "/scratch365/pliang/AVE_project/consumable/title_bullet/33att/sample_data_1/mrc_for_ner/33att/mrc-ner.test.test"
     is_chinese = False
 
     # en datasets

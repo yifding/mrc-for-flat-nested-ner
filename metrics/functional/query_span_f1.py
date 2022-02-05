@@ -104,6 +104,15 @@ def extract_flat_spans(start_pred, end_pred, match_pred, label_mask, pseudo_tag 
             else:
                 bmes_labels[tmp_end] = f"S-{pseudo_tag}"
 
+    # **YD** debug: bmes_labels can have lonely 'E-' annotation which will cause errors.
+    # Detect it and remove it from the sequence.
+    # print(f'bmes_labels:{bmes_labels}')
+    for index in range(len(bmes_labels)):
+        label = bmes_labels[index]
+        if label == f'E-{pseudo_tag}':
+            if index == 0 or bmes_labels[index-1] not in [f'M-{pseudo_tag}', f'B-{pseudo_tag}']:
+                bmes_labels[index] = 'O'
+
     tags = bmes_decode([(pseudo_input, label) for label in bmes_labels])
 
     return [(entity.begin, entity.end, entity.tag) for entity in tags]

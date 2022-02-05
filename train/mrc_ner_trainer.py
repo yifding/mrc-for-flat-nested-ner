@@ -398,6 +398,7 @@ def main():
         model.load_state_dict(torch.load(args.pretrained_checkpoint,
                                          map_location=torch.device('cpu'))["state_dict"])
 
+    print(f'args.max_keep_ckpt: {args.max_keep_ckpt}')
     checkpoint_callback = ModelCheckpoint(
         filepath=args.default_root_dir,
         save_top_k=args.max_keep_ckpt,
