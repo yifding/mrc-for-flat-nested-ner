@@ -25,7 +25,7 @@ def yd_add_parser(parent_parser):
         # default="['ActiveIngredients','AgeRangeDescription','BatteryCellComposition','Brand','CaffeineContent','CapacityUnit','CoffeeRoastType','Color','DietType','DosageForm','EnergyUnit','FinishType','Flavor','FormulationType','HairType','Ingredients','ItemForm','ItemShape','LiquidContentsDescription','Material','MaterialFeature','MaterialTypeFree','PackageSizeName','Pattern','PatternType','ProductBenefit','Scent','SkinTone','SkinType','SpecialIngredients','TargetGender','TeaVariety','Variety']",
         type=eval,
     )
-    parser.add_argument("--dataset_sign", type=str, choices=["ontonotes4", "msra", "conll03", "ace04", "ace05","az33","ae48"], default="conll03")
+    parser.add_argument("--dataset_sign", type=str, choices=["ontonotes4", "msra", "conll03", "ace04", "ace05","az15","az33","ae48"], default="conll03")
     return parser
 
 
@@ -38,6 +38,8 @@ def get_query_index_to_label_cate(dataset_sign):
         return {1: "GPE", 2: "ORG", 3: "PER", 4: "FAC", 5: "VEH", 6: "LOC", 7: "WEA"}
     elif dataset_sign == "az33":
         return {0: 'ActiveIngredients', 1: 'AgeRangeDescription', 2: 'BatteryCellComposition', 3: 'Brand', 4: 'CaffeineContent', 5: 'CapacityUnit', 6: 'CoffeeRoastType', 7: 'Color', 8: 'DietType', 9: 'DosageForm', 10: 'EnergyUnit', 11: 'FinishType', 12: 'Flavor', 13: 'FormulationType', 14: 'HairType', 15: 'Ingredients', 16: 'ItemForm', 17: 'ItemShape', 18: 'LiquidContentsDescription', 19: 'Material', 20: 'MaterialFeature', 21: 'MaterialTypeFree', 22: 'PackageSizeName', 23: 'Pattern', 24: 'PatternType', 25: 'ProductBenefit', 26: 'Scent', 27: 'SkinTone', 28: 'SkinType', 29: 'SpecialIngredients', 30: 'TargetGender', 31: 'TeaVariety', 32: 'Variety'}
+    elif dataset_sign == "az15":
+        return {0: 'ActiveIngredients', 1: 'AgeRangeDescription', 2: 'Color', 3: 'FinishType', 4: 'Flavor', 5: 'HairType', 6: 'ItemForm', 7: 'Material', 8: 'ProductBenefit', 9: 'Scent', 10: 'SkinTone', 11: 'SkinType', 12: 'SpecialIngredients', 13: 'TargetGender', 14: 'Variety'}
     elif dataset_sign == "ae48":
         return {0: 'ApplicablePlace', 1: 'AthleticShoeType', 2: 'BackSideMaterial', 3: 'BodyMaterial', 4: 'BrandName', 5: 'Capacity', 6: 'Category', 7: 'ClosureType', 8: 'Collar', 9: 'Color', 10: 'DepartmentName', 11: 'DerivativeSeries', 12: 'FabricType', 13: 'Feature', 14: 'FingerboardMaterial', 15: 'Fit', 16: 'Function', 17: 'Gender', 18: 'HoseHeight', 19: 'InsoleMaterial', 20: 'IsCustomized', 21: 'ItemType', 22: 'Length', 23: 'LensesOpticalAttribute', 24: 'LevelOfPractice', 25: 'LiningMaterial', 26: 'Material', 27: 'Model', 28: 'ModelNumber', 29: 'Name', 30: 'OuterwearType', 31: 'OutsoleMaterial', 32: 'PatternType', 33: 'ProductType', 34: 'Season', 35: 'Size', 36: 'SleeveLengthCm', 37: 'SportType', 38: 'SportsType', 39: 'StrapType', 40: 'Style', 41: 'Technology', 42: 'Type', 43: 'TypeOfSports', 44: 'UpperHeight', 45: 'UpperMaterial', 46: 'Voltage', 47: 'Weight'}
 
@@ -125,6 +127,10 @@ def main():
             label_cate = query2label_dict[label_idx.item()]
             readable_input_str = data_tokenizer.decode(subtokens_idx_lst, skip_special_tokens=True)
 
+            # **YD** avoid selecting spans from questions.
+            sub_token_type_ids = token_type_ids[0]
+            assert len(sub_token_type_ids) == len(subtokens_lst)
+
             if args.flat_ner:
                 # print(f'label_cate: {label_cate}')
                 # print(f'start_preds:{start_preds.shape}; {start_preds}')
@@ -140,6 +146,10 @@ def main():
                 if len(entities_info) != 0:
                     for entity_info in entities_info:
                         start, end = entity_info[0], entity_info[1]
+                        # **YD** avoid selecting spans from questions.
+                        if sub_token_type_ids[start] == 0 or sub_token_type_ids[end] == 0:
+                            continue
+
                         entity_string = " ".join(subtokens_lst[start: end])
                         entity_string = entity_string.replace(" ##", "")
                         entity_lst.append((start, end, entity_string, entity_info[2]))
@@ -154,6 +164,9 @@ def main():
                 if len(entities_info) != 0:
                     for entity_info in entities_info:
                         start, end = entity_info[0], entity_info[1]
+                        # **YD** avoid selecting spans from questions.
+                        if sub_token_type_ids[start] == 0 or sub_token_type_ids[end] == 0:
+                            continue
                         entity_string = " ".join(subtokens_lst[start: end + 1])
                         entity_string = entity_string.replace(" ##", "")
                         entity_lst.append((start, end + 1, entity_string, entity_info[2]))
